@@ -10,30 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318164325) do
+ActiveRecord::Schema.define(version: 20180318200236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "droptitle"
-    t.text "body"
-    t.integer "comments_number"
-    t.integer "visits_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_articles_on_user_id"
-  end
-
   create_table "comments", force: :cascade do |t|
-    t.bigint "article_id"
     t.string "name"
     t.text "body"
+    t.bigint "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
+    t.index ["entry_id"], name: "index_comments_on_entry_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -43,10 +31,12 @@ ActiveRecord::Schema.define(version: 20180318164325) do
     t.integer "counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -56,7 +46,6 @@ ActiveRecord::Schema.define(version: 20180318164325) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "mail"
     t.string "permission_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,6 +53,6 @@ ActiveRecord::Schema.define(version: 20180318164325) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "articles", "users"
-  add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "entries"
+  add_foreign_key "entries", "users"
 end

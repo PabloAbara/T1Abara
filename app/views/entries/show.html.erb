@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<!-- <p id="notice"><%= notice %></p> -->
 <p>
   <strong>Title:</strong>
   <%= @entry.title %>
@@ -9,7 +8,7 @@
   <strong>Downtitle:</strong>
   <%= @entry.downtitle %>
 </p>
-
+<p>Escrito por <%= @entry.user.email%></p>
 <p>
   <strong>Body:</strong>
   <%= @entry.body %>
