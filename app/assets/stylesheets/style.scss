@@ -13,13 +13,29 @@ a,a:visited{
   color: white;
 }
 .large-padding{
-  padding: 10px 5px;
+  padding: 15px 10px;
 }
-.no-list{
+.no-bullet{
   list-style-type: none;
 }
 .no-margin{
   margin: 0px;
+}
+.field, .top-space, .actions{
+  margin-top: 1em;
+}
+.text-left{
+  text-align: left;
+}
+.form_control{
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  width: 100%;
+  display: block;
+  padding: 10px 0px;
+  font-size: 1.2em;
+
 }
 #logo{
   font-size: 1.2em;

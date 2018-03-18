@@ -10,41 +10,36 @@
   </head>
 
   <body>
-    <nav class="be-green white large-padding align-middle">
-      <ul class="row no-list align-items-lg-center">
-        <li>
+    <nav class="be-green white large-padding">
+      <ul class="no-margin no-list no-bullet row center-xs middle-xs">
+        <li class="col-md">
           <h1 class="no-margin" id="logo">MEMOL, sitio de noticias</h1>
         </li>
         <li class="col-md" style="margin-left:100px;">
           <%= link_to "Noticias", root_path %>
         </li>
         <% if user_signed_in? %>
-        <li class="col-md">
-          <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
-        </li>
+          <li class="col-md">
+            <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+          </li>
         <%else%>
-        <li class="col-md">
-          <%= link_to "Iniciar Sesión", new_user_session_path%>
-        </li>
-        <li class="col-md">
-          <%= link_to "Registrarse", new_user_registration_path%>
-        </li>
+          <li class="col-md">
+            <%= link_to "Iniciar Sesión", new_user_session_path%>
+          </li>
+          <li class="col-md">
+            <%= link_to "Registrarse", new_user_registration_path%>
+          </li>
         <%end%>
       </ul>
-    <!-- <div class="row">
-      <div class="col-lg-3">
-        <h1>One</h1>
-      </div>
-      <div class="col-lg-3">
-        <h1>Two</h1>
-      </div>
-      <div class="col-lg-3">
-        <h1>Three</h1>
-      </div>
-    </div> -->
-  </nav>
+    </nav>
+
+
+  <% unless notice.nil?%>
   <p class="notice"><%= notice %></p>
+  <%end%>
+  <% unless alert.nil?%>
   <p class="alert"><%= alert %></p>
+  <%end%>
     <%= yield %>
   </body>
 </html>
