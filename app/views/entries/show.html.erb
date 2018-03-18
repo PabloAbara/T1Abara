@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @entry.title %>
+</p>
+
+<p>
+  <strong>Downtitle:</strong>
+  <%= @entry.downtitle %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @entry.body %>
+</p>
+
+<p>
+  <strong>Counter:</strong>
+  <%= @entry.counter %>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>
