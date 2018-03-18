@@ -12,6 +12,7 @@ class EntriesController < ApplicationController
   # GET /entries/1.json
   def show
     @entry.update_counter
+    @comment = Comment.new 
   end
 
   # GET /entries/new

@@ -15,8 +15,20 @@
 </p>
 
 <p>
-  <strong>Counter:</strong>
+  <strong>Visitas:</strong>
   <%= @entry.counter %>
+</p>
+
+<p class="field">
+  <h3>Comentarios</h3>
+  <%= render "comments/form"%>
+  <ul>
+    <% @entry.comments.each do |comment| %>
+    <li>
+      <%=comment.body%> - { <%=comment.name%> }
+    </li>
+    <%end%>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
