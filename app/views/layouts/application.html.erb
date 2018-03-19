@@ -18,20 +18,15 @@
           <%= link_to "Noticias", root_path %>
         </li>
         <% if user_signed_in? %>
-          <%if current_user.email=='pbabara@uc.cl'%>
             <li class="col-md">
               <%= link_to "Administrar", '/entries/admin' %>
             </li>
-          <%end%>
           <li class="col-md">
             <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
           </li>
         <%else%>
           <li class="col-md">
             <%= link_to "Iniciar Sesión", new_user_session_path%>
-          </li>
-          <li class="col-md">
-            <%= link_to "Registrarse", new_user_registration_path%>
           </li>
         <%end%>
       </ul>

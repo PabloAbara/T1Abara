@@ -7,6 +7,7 @@
     <%= @entry.downtitle %>
   </h5>
   <small><strong>Escrito por</strong> <%= @entry.user.email%></small>
+  <small><strong>Publicado </strong> <%= @entry.created_at%></small>
   <p>
     <%= @entry.body %>
   </p>
@@ -29,6 +30,4 @@
       </div>
   </p>
 </div>
-
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
 <%= link_to 'Back', entries_path %>

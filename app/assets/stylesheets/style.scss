@@ -2,16 +2,21 @@ html,body{
   margin:0px;
   font-family: 'Oswald', sans-serif;
 }
+.white {
+  color: white !important;
+}
 a,a:visited{
   color:inherit !important;
   text-decoration: none;
 }
+
 .be-green{
   background-color: rgb(23,64,17);
 }
-.white {
-  color: white;
+.be-light-green{
+  background-color: #D9E6D8;
 }
+
 .large-padding{
   padding: 15px 10px;
 }
@@ -70,6 +75,9 @@ a,a:visited{
   border: none;
   border-bottom: 1px solid;
   outline: none;
+}
+.push-right{
+  margin-right: 0.5em;
 }
 #logo{
   font-size: 1.2em;
