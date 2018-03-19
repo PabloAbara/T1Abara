@@ -1,0 +1,42 @@
+<%if user_signed_in?%>
+<div class="container">
+  <br>
+  <h2 >Noticias de la semana</h2>
+  <h5>Bienvenido <%= current_user.email%></h5>
+  <br>
+</div>
+<%end%>
+<div class="container contenido">
+  <table class="contenido">
+    <thead>
+      <tr class="center-xs">
+        <th>Título</th>
+        <th>Bajada</th>
+        <th>Cuerpo</th>
+        <th>Visitas</th>
+        <th>Comentarios</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @entries.each do |entry| %>
+        <tr class="strong-border">
+          <td><%= truncate(entry.title, :length => 40) %></td>
+          <td><%= entry.downtitle %></td>
+          <td><%= truncate(entry.body, :length => 100) %></td>
+          <td class="center-xs"><%= entry.counter %></td>
+          <td class="center-xs"><%= entry.comments.length %></td>
+          <td class="center-xs">
+            <%= link_to 'Ver', entry %>
+            <%= link_to 'Editar', edit_entry_path(entry) %>
+            <%= link_to 'Eliminar', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<%= link_to 'Nueva Noticia', new_entry_path %>

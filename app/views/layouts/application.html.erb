@@ -6,19 +6,23 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
     <nav class="be-green white large-padding">
       <ul class="no-margin no-list no-bullet row center-xs middle-xs">
-        <li class="col-md">
-          <h1 class="no-margin" id="logo">MEMOL, sitio de noticias</h1>
+        <li class="col-md-4">
+          <h1 class="no-margin" id="logo"><%= link_to "MEMOL, sitio de noticias", root_path %></h1>
         </li>
         <li class="col-md" style="margin-left:100px;">
           <%= link_to "Noticias", root_path %>
         </li>
         <% if user_signed_in? %>
+          <%if current_user.email=='pbabara@uc.cl'%>
+            <li class="col-md">
+              <%= link_to "Administrar", '/entries/admin' %>
+            </li>
+          <%end%>
           <li class="col-md">
             <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
           </li>

@@ -2,17 +2,24 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def admin
+    @entries = Entry.all.sort_by &:created_at
+    @entries = @entries.reverse
+  end
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    # @entries = Entry.find(:all, sort_by => 'created_at DESC', limit => 10)
+    @entries = Entry.all.sort_by &:created_at
+    @entries = @entries.reverse
+    @entries = @entries.first(10)
   end
 
   # GET /entries/1
   # GET /entries/1.json
   def show
     @entry.update_counter
-    @comment = Comment.new 
+    @comment = Comment.new
   end
 
   # GET /entries/new
@@ -63,6 +70,8 @@ class EntriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

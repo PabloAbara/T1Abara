@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/entries/admin', to: 'entries#admin'
+
   resources :entries do
     resources :comments, only: [:create, :destroy, :update]
   end

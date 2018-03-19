@@ -13,25 +13,20 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :entry_title %>
+    <%= form.text_field :title, id: :entry_title , class:"form_control" %>
   </div>
 
   <div class="field">
     <%= form.label :downtitle %>
-    <%= form.text_area :downtitle, id: :entry_downtitle %>
+    <%= form.text_area :downtitle, id: :entry_downtitle , class:"form_control" %>
   </div>
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body, id: :entry_body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :counter %>
-    <%= form.number_field :counter, id: :entry_counter %>
+    <%= form.text_area :body, id: :entry_body , class:"form_control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Ingresar", class:"btn be-green white" %>
   </div>
 <% end %>

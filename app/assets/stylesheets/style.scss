@@ -37,6 +37,40 @@ a,a:visited{
   font-size: 1.2em;
 
 }
+.border{
+  border-color: rgb(23,64,17);
+}
+.header{
+  border-color:#E6DDDD;
+  border-style: solid;
+  border-radius: 1em;
+  border-width: 0.1em;
+  padding: 0.5em;
+  background: #B1BFB2;
+  word-wrap: break-word;
+}
+.contenido{
+  word-wrap: break-word;
+  height: auto;
+  table-layout:fixed;
+  width: 100%;
+}
+.sidebar2{
+  background: black;
+}
+.footer{
+  border-color:#f8f9fa;
+  border-style: solid;
+  border-width: 0.1em;
+  padding: 0.5em;
+  background: #e9ecef;
+  word-wrap: break-word;
+}
+.strong-border{
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+}
 #logo{
   font-size: 1.2em;
 }

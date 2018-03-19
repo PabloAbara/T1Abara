@@ -1,35 +1,34 @@
 <!-- <p id="notice"><%= notice %></p> -->
-<p>
-  <strong>Title:</strong>
-  <%= @entry.title %>
-</p>
+<div class="container left-xs">
+  <h1>
+    <%= @entry.title %>
+  </h1>
+  <h5>
+    <%= @entry.downtitle %>
+  </h5>
+  <small><strong>Escrito por</strong> <%= @entry.user.email%></small>
+  <p>
+    <%= @entry.body %>
+  </p>
+  <small>
+    <strong>Visitas:</strong>
+      <%= @entry.counter %>
+  </small>
 
-<p>
-  <strong>Downtitle:</strong>
-  <%= @entry.downtitle %>
-</p>
-<p>Escrito por <%= @entry.user.email%></p>
-<p>
-  <strong>Body:</strong>
-  <%= @entry.body %>
-</p>
-
-<p>
-  <strong>Visitas:</strong>
-  <%= @entry.counter %>
-</p>
-
-<p class="field">
-  <h3>Comentarios</h3>
-  <%= render "comments/form"%>
-  <ul>
-    <% @entry.comments.each do |comment| %>
-    <li>
-      <%=comment.body%> - { <%=comment.name%> }
-    </li>
-    <%end%>
-  </ul>
-</p>
+  <p class="field form_control">
+    <h4>Comentarios</h4>
+    <%= render "comments/form"%>
+    <div class="footer">
+      <ul>
+        <% @entry.comments.each do |comment| %>
+        <li>
+          { <%=comment.name%> } - <%=comment.body%>.
+        </li>
+        <%end%>
+      </ul>
+      </div>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
 <%= link_to 'Back', entries_path %>
